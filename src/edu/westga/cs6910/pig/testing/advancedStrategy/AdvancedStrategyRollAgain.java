@@ -51,13 +51,22 @@ class AdvancedStrategyRollAgain {
 		boolean result = this.playAdvancedStrategy.rollAgain(0, 0, 100, 93);
 		assertEquals(true, result);
 	}
-	
+
 	/**
 	 * Test for the computer player's roll when it has exactly 100 points
 	 */
 	@Test
 	void testShouldReturnFalseAtEndOfGameWhenComputerPlayerHas100Points() {
 		boolean result = this.playAdvancedStrategy.rollAgain(2, 8, 0, 10);
+		assertEquals(false, result);
+	}
+
+	/**
+	 * Test for the computer player's roll when it has more than 106 points
+	 */
+	@Test
+	void testShouldReturnFalseAtEndOfGameWhenComputerPlayerHas106Points() {
+		boolean result = this.playAdvancedStrategy.rollAgain(1, 7, -7, 1);
 		assertEquals(false, result);
 	}
 
