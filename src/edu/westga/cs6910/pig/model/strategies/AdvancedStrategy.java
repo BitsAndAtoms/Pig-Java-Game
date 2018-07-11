@@ -15,6 +15,8 @@ public class AdvancedStrategy implements PigStrategy {
 			int opponentPointsToGoal) {
 		if (pointsToGoal <= 0 || opponentPointsToGoal <= 0) {
 			return false;
+		} else if (opponentPointsToGoal <= 7) {
+			return true;
 		}
 		return true;
 	}

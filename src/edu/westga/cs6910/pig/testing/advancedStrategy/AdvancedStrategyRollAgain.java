@@ -92,4 +92,23 @@ class AdvancedStrategyRollAgain {
 		assertEquals(false, result);
 	}
 
+	/**
+	 * Test for ComputerPlayer's roll when human player needs 7 points to win
+	 */
+	@Test
+	void testShouldReturnTrueWhenHumanPlayerNeeds7PointsToWin() {
+		boolean result = this.playAdvancedStrategy.rollAgain(1, 5, 40, 7);
+		assertEquals(true, result);
+	}
+
+	/**
+	 * Test for ComputerPlayer's roll when human player needs less than 7 points to
+	 * win
+	 */
+	@Test
+	void testShouldReturnTrueWhenHumanPlayerNeeds3PointsToWin() {
+		boolean result = this.playAdvancedStrategy.rollAgain(1, 5, 30, 3);
+		assertEquals(true, result);
+	}
+
 }
