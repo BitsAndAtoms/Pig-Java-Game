@@ -1,7 +1,7 @@
 package edu.westga.cs6910.pig.model.strategies;
 
 /**
- * Creates an advanced play strategy for the game Pig and implements PigStrategy
+ * Creates an advanced play strategy for the game Pig that implements PigStrategy
  * 
  * @author Siddhartha Gupta
  * @version 7/10/2018
