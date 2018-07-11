@@ -1,8 +1,7 @@
 package edu.westga.cs6910.pig.model.strategies;
 
 /**
- * This class creates an advanced play strategy for the game Pig and implementes
- * PigStrategy
+ * Creates an advanced play strategy for the game Pig and implements PigStrategy
  * 
  * @author Siddhartha Gupta
  * @version 7/10/2018
@@ -10,6 +9,9 @@ package edu.westga.cs6910.pig.model.strategies;
  */
 public class AdvancedStrategy implements PigStrategy {
 
+	/**
+	 * Method to decide whether to roll again based on advanced strategy
+	 */
 	@Override
 	public boolean rollAgain(int numberOfRollsSoFar, int pointsSoFarThisTurn, int pointsToGoal,
 			int opponentPointsToGoal) {
@@ -17,6 +19,12 @@ public class AdvancedStrategy implements PigStrategy {
 			return false;
 		} else if (opponentPointsToGoal <= 7) {
 			return true;
+		} else if (Math.ceil(opponentPointsToGoal / 7.0) > Math.ceil(pointsToGoal / 7.0)) {
+			return false;
+		} else if (Math.ceil(opponentPointsToGoal / 7.0) < Math.ceil(pointsToGoal / 7.0)) {
+			return true;
+		} else if (Math.ceil(opponentPointsToGoal / 7.0) == Math.ceil(pointsToGoal / 7.0) && numberOfRollsSoFar != 0) {
+			return ((double) pointsSoFarThisTurn / numberOfRollsSoFar < 7);
 		}
 		return true;
 	}
