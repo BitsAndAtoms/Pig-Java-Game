@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import edu.westga.cs6910.pig.model.strategies.AdvancedStrategy;
 
 /**
+ * Test cases for advancedStrategyRollAgain
  * @author Siddhartha Gupta
  * @version 7/10/2018
  */
@@ -29,5 +30,4 @@ class AdvancedStrategyRollAgain {
 		boolean result = this.playAdvancedStrategy.rollAgain(0, 0, 100, 100);
 		assertEquals(true, result);
 	}
-
 }
