@@ -13,7 +13,7 @@ public class AdvancedStrategy implements PigStrategy {
 	@Override
 	public boolean rollAgain(int numberOfRollsSoFar, int pointsSoFarThisTurn, int pointsToGoal,
 			int opponentPointsToGoal) {
-		if (pointsToGoal <= 0) {
+		if (pointsToGoal <= 0 || opponentPointsToGoal <= 0) {
 			return false;
 		}
 		return true;
