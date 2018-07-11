@@ -33,8 +33,8 @@ class AdvancedStrategyRollAgain {
 	}
 
 	/**
-	 * Test for computer player's roll after human player goes first with no
-	 * points
+	 * Test for the computer player's roll after human player goes first with no
+	 * points and computer player hasn't gone yet
 	 */
 	@Test
 	void testShouldReturnTrueAtStartOfGameAfterHumanPlayerHasGoneWithNoPoints() {
@@ -43,13 +43,22 @@ class AdvancedStrategyRollAgain {
 	}
 
 	/**
-	 * Test for computer player's roll after human player goes first with 7
-	 * points
+	 * Test for the computer player's roll after human player goes first with 7
+	 * points and computer player hasn't gone yet
 	 */
 	@Test
 	void testShouldReturnTrueAtStartOfGameAfterHumanPlayerHasGoneWithSomePoints() {
 		boolean result = this.playAdvancedStrategy.rollAgain(0, 0, 100, 93);
 		assertEquals(true, result);
+	}
+	
+	/**
+	 * Test for the computer player's roll when it has exactly 100 points
+	 */
+	@Test
+	void testShouldReturnFalseAtEndOfGameWhenComputerPlayerHas100Points() {
+		boolean result = this.playAdvancedStrategy.rollAgain(2, 8, 0, 10);
+		assertEquals(false, result);
 	}
 
 }
