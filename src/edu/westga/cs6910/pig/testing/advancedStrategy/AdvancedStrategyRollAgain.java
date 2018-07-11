@@ -53,20 +53,42 @@ class AdvancedStrategyRollAgain {
 	}
 
 	/**
-	 * Test for the computer player's roll when it has exactly 100 points
+	 * Test for the computer player's roll when it reaches exactly 100 points before
+	 * human player
 	 */
 	@Test
-	void testShouldReturnFalseAtEndOfGameWhenComputerPlayerHas100Points() {
+	void testShouldReturnFalseAtEndOfGameWhenComputerPlayerReaches100Points() {
 		boolean result = this.playAdvancedStrategy.rollAgain(2, 8, 0, 10);
 		assertEquals(false, result);
 	}
 
 	/**
-	 * Test for the computer player's roll when it has more than 106 points
+	 * Test for the computer player's roll when it exceeds 100 points before human
+	 * player reaches/exceeds the goal
 	 */
 	@Test
-	void testShouldReturnFalseAtEndOfGameWhenComputerPlayerHas106Points() {
-		boolean result = this.playAdvancedStrategy.rollAgain(1, 7, -7, 1);
+	void testShouldReturnFalseAtEndOfGameWhenComputerPlayerReaches106Points() {
+		boolean result = this.playAdvancedStrategy.rollAgain(1, 7, -6, 1);
+		assertEquals(false, result);
+	}
+
+	/**
+	 * Test for the computer player's roll when human player reaches 100 points
+	 * first
+	 */
+	@Test
+	void testShouldReturnFalseAtEndOfGameWhenHumanPlayerReaches100Points() {
+		boolean result = this.playAdvancedStrategy.rollAgain(0, 0, 2, 0);
+		assertEquals(false, result);
+	}
+
+	/**
+	 * Test for the computer player's roll when human player exceeds 100 points
+	 * first
+	 */
+	@Test
+	void testShouldReturnFalseAtEndOfGameWhenHumanPlayerReaches106Points() {
+		boolean result = this.playAdvancedStrategy.rollAgain(0, 0, 12, -6);
 		assertEquals(false, result);
 	}
 
